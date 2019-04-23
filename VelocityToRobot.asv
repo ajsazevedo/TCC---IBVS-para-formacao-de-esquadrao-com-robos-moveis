@@ -1,0 +1,22 @@
+%Passar as velocidades para o robo
+
+function [x, y] = VelocityToRobot(x, y, vx, wz)
+
+    x = x + vx;
+    y = y + (x*cos(wz));
+    wheelRadius = 0.
+    obj = DifferentialDrive(wheelRadius, wheelBase);
+    
+    
+%   velrefM1 = val[1];
+%   sM1 = val[2];
+%   velrefM2 = val[3];
+%   sM2 = val[4];
+%   kp1=val[5])/10;
+%   ki1=val[6])/10; 
+%   kp2=val[7])/10;
+%   ki2=val[8])/10; 
+%   kd1=val[9])/10;
+%   kd2=val[10])/10;
+    
+end

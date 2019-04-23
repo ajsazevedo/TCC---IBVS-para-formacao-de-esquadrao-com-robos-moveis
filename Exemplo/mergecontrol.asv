@@ -1,0 +1,10 @@
+function um=mergecontrol(u)
+% u(1) = dot_x
+% u(2) = dot_y
+% u(3) = omega
+
+%um(1)=v
+%um(2)=omega
+
+kappa=
+K=1/(1+abs(dot_x)/kappa);
