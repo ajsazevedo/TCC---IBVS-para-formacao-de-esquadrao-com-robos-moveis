@@ -1,4 +1,7 @@
 % Monitorar a imagem da camera
+clear
+
+Ref = GetInitialParams();
 
 %Posicao inicial do robo
 x = 1;
@@ -9,7 +12,7 @@ count = 1;
 while (count < 10)
     Img = GetImage();
     Table = GetFeatures(Img);
-    [vx, wz] = MakeIBVS(Table, x, y);
+    [vx, wz] = MakeIBVS(Table, x, y, Ref);
     results(count, 1) = vx;
     results(count, 2) = wz;
     count= count+1;

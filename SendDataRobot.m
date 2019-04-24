@@ -12,10 +12,21 @@ function SendDataRobot(wl, wr)
   ki2 = ki1;
   kd2 = kd1;
   
+  %Clear ports
+  if ~isempty(instrfind)
+     fclose(instrfind);
+      delete(instrfind);
+  end
   
-  %%Write to arduino
-  arduino = serial('COM3','BaudRate',9600);
+  %%Open comunications
+  arduino = serial('COM3','BAUD',9600);
   fopen(arduino);
+  
+  %read data?
+%   idn = fread(arduino);
+%   disp(idn);
+  
+  %Send data to arduino
   fprintf(arduino, '%f', velrefM1);
   fprintf(arduino, '%f', sM1);
   fprintf(arduino, '%f', velrefM2);
@@ -26,6 +37,7 @@ function SendDataRobot(wl, wr)
   fprintf(arduino, '%f', ki2);
   fprintf(arduino, '%f', kd1);
   fprintf(arduino, '%f', kd2);
-  fclose(arduino);
   
+  %close communications
+  fclose(arduino);  
 end
