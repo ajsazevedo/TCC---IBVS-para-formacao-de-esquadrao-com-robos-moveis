@@ -8,10 +8,10 @@ function [tableA] = GetFeatures(img)
     
     %imshow(im_targets);
     gray_image = rgb2gray(im_targets); 
-    imshow(gray_image);
+    %imshow(gray_image);
     [cluster,radii] = imfindcircles(gray_image,[50 75],'ObjectPolarity','dark',...
     'Sensitivity',0.95,'Method','twostage');
-    h = viscircles(cluster,radii);
+    %h = viscircles(cluster,radii);
     %para cada um, econtra a centroide da elipse e armazena na tabela
     tableA = zeros(4, 2);
     count = 1;
@@ -20,4 +20,6 @@ function [tableA] = GetFeatures(img)
         tableA(count,:) = cluster(i,:);
         count= count+1;
     end
+    
+    tableA = tableA';
 end
